@@ -22,6 +22,16 @@ Program umožňuje uživatelsky definovat různé parametry simulace, jako je po
 
 ## Příklad výstupu
 
+Výpis parametrů před začátkem simulace:
+
+```
+Simulation Parameters:
+Number of Registers: 6
+Simulation Duration: 60 seconds
+Customer Arrival Rate: 2.1 customers/second
+Item Range per Customer: 1 to 30 items
+```
+
 Simulace běží...
 
 ```
