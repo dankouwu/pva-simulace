@@ -1,7 +1,3 @@
-Here’s a simple README in Czech for your project:
-
----
-
 # Simulační model pokladen obchodního domu
 
 ## Popis projektu
