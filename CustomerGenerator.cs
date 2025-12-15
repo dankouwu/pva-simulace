@@ -2,6 +2,7 @@ public class CustomerGenerator
 {
     private Random _random = new Random();
     private SimulationParameters _parameters;
+    private int _customerIdCounter = 0;
 
     public CustomerGenerator(SimulationParameters parameters)
     {
@@ -13,7 +14,7 @@ public class CustomerGenerator
     {
         int items = _random.Next(_parameters.ItemRange.MinItems, _parameters.ItemRange.MaxItems + 1);
         DateTime arrivalTime = DateTime.Now.AddSeconds(_random.NextDouble() * 5);  // Random arrival within 5 seconds
-        return new Customer(Guid.NewGuid().GetHashCode(), arrivalTime, items);
+        return new Customer(_customerIdCounter++, arrivalTime, items);
     }
 
     // Method to simulate Poisson arrival distribution for customers
@@ -22,4 +23,3 @@ public class CustomerGenerator
         // Implement logic for customer arrival using Poisson distribution or a similar approach
     }
 }
-
