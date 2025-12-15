@@ -1,0 +1,15 @@
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.GeneratedMSBuildEditorConfig.editorconfig
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.AssemblyInfoInputs.cache
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.AssemblyInfo.cs
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.csproj.CoreCompileInputs.cache
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.sourcelink.json
+/home/dnk/SSPS/PVA/pva-simulace/bin/Debug/net9.0/pva-simulace
+/home/dnk/SSPS/PVA/pva-simulace/bin/Debug/net9.0/pva-simulace.deps.json
+/home/dnk/SSPS/PVA/pva-simulace/bin/Debug/net9.0/pva-simulace.runtimeconfig.json
+/home/dnk/SSPS/PVA/pva-simulace/bin/Debug/net9.0/pva-simulace.dll
+/home/dnk/SSPS/PVA/pva-simulace/bin/Debug/net9.0/pva-simulace.pdb
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.dll
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/refint/pva-simulace.dll
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.pdb
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/pva-simulace.genruntimeconfig.cache
+/home/dnk/SSPS/PVA/pva-simulace/obj/Debug/net9.0/ref/pva-simulace.dll

@@ -7,14 +7,15 @@ public class Program
         // Step 1: Collect simulation parameters
         SimulationParameters parameters = new SimulationParameters();
         parameters.GetUserInput();
+        parameters.DisplayParameters();
 
         // Step 2: Start the simulation
-        CheckoutSimulator simulator = new CheckoutSimulator(parameters);
-        simulator.RunSimulation();
+        // CheckoutSimulator simulator = new CheckoutSimulator(parameters);
+        // simulator.RunSimulation();
 
         // Step 3: Display results
-        Statistics stats = new Statistics();
-        stats.DisplayStatistics();
+        // Statistics stats = new Statistics();
+        // stats.DisplayStatistics();
     }
 }
 

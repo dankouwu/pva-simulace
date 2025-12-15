@@ -1,23 +1,20 @@
-public class SimulationParameters
+public class Customer
 {
-    public int NumberOfRegisters { get; set; }  // Number of registers (cashiers)
-    public int SimulationDuration { get; set; }  // Duration of the simulation in seconds
-    public double CustomerArrivalRate { get; set; }  // Average number of customers per second
-    public (int MinItems, int MaxItems) ItemRange { get; set; }  // Range of items per customer
+    public int Id { get; set; }
+    public DateTime ArrivalTime { get; set; }
+    public int Items { get; set; }
+    public int ServiceTime { get; set; }
 
-    // Constructor to initialize with default values
-    public SimulationParameters() { }
+    public int ServiceStartTime { get; set; }
+    public int DepartureTime { get; set; }
 
-    // Method to get input from the user
-    public void GetUserInput()
+    public Customer(int id, DateTime arrivalTime, int items)
     {
-        // Implement input validation and assignment
-    }
-
-    // Method to save configuration to a file (optional)
-    public void SaveConfiguration()
-    {
-        // Implement save functionality to text file
+        Id = id;
+        ArrivalTime = arrivalTime;
+        Items = items;
+        ServiceTime = 0;
+        ServiceStartTime = 0;
+        DepartureTime = 0;
     }
 }
-
