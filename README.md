@@ -45,7 +45,3 @@ Celkově obslouženo: 125 zákazníků
 ## Licencování
 
 Tento projekt je licencován pod licencí MIT. Pro více informací si přečtěte soubor LICENSE.
-
----
-
-This README covers the essential details for your project: a brief description of what the project does, instructions for setting it up, and the expected outputs. You can expand it with more specific instructions if needed.
