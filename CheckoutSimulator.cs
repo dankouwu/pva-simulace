@@ -8,7 +8,7 @@ public class CheckoutSimulator
     {
         _parameters = parameters;
         _queueManager = new QueueManager(parameters.NumberOfRegisters);
-        _customerGenerator = new CustomerGenerator(parameters);
+        _customerGenerator = new CustomerGenerator(parameters, _queueManager);
     }
 
     // Main simulation loop

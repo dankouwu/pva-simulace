@@ -2,6 +2,7 @@ public class Statistics
 {
     public double AverageWaitingTime { get; set; }
     public int MaxQueueLength { get; set; }
+    List<Customer> ProcessedCustomers { get; set; }
     public int TotalCustomersProcessed { get; set; }
 
     // Method to calculate statistics
