@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pva-simulace")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2277c759fd6203b5c4646985af8952a6e09d751")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d93d272566a46aaf4c7261f64305ce00cebd18ee")]
 [assembly: System.Reflection.AssemblyProductAttribute("pva-simulace")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pva-simulace")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
