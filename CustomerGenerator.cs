@@ -29,6 +29,18 @@ public class CustomerGenerator
         {
             Customer newCustomer = GenerateCustomer();
             _queueManager.AddCustomerToShortestQueue(newCustomer);
+        }}
+    
+        private int PoissonRandom(double lambda)
+        {
+            double l = Math.Exp(-lambda);
+            int k = 0;
+            double p = 1.0;
+            do
+            {
+                k++;
+                p *= _random.NextDouble();
+            } while (p > l);
+            return k - 1;
         }
     }
-}

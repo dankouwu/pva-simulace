@@ -8,6 +8,12 @@ public class Customer
     public int ServiceStartTime { get; set; }
     public int DepartureTime { get; set; }
 
+    public int NumberOfItems
+    {
+        get => Items;
+        set => Items = value;
+    }
+
     public Customer(int id, DateTime arrivalTime, int items)
     {
         Id = id;

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Wn0XFHTcEDw=",
+  "dgSpecHash": "qTAh5/a9mhk=",
   "success": true,
-  "projectFilePath": "/home/dnk/SSPS/PVA/pva-simulace/pva-simulace.csproj",
+  "projectFilePath": "/home/hoks/pva-simulace/pva-simulace.csproj",
   "expectedPackageFiles": [
-    "/home/dnk/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.9/microsoft.aspnetcore.app.ref.9.0.9.nupkg.sha512"
+    "/home/hoks/.nuget/packages/microsoft.aspnetcore.app.ref/10.0.0/microsoft.aspnetcore.app.ref.10.0.0.nupkg.sha512"
   ],
   "logs": []
 }
