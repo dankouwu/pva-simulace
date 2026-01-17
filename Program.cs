@@ -12,10 +12,6 @@ public class Program
         // Step 2: Start the simulation
         CheckoutSimulator simulator = new CheckoutSimulator(parameters);
         simulator.RunSimulation();
-
-        // Step 3: Display results
-        // Statistics stats = new Statistics();
-        // stats.DisplayStatistics();
     }
 }
 

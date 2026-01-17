@@ -12,35 +12,35 @@ public class CustomerGenerator
     }
 
     // Method to simulate customer arrivals
-    public Customer GenerateCustomer()
+    public Customer GenerateCustomer(int currentTimeSeconds)
     {
         int items = _random.Next(_parameters.ItemRange.MinItems, _parameters.ItemRange.MaxItems + 1);
-        DateTime arrivalTime = DateTime.Now.AddSeconds(_random.NextDouble() * 10);  // Random arrival within 10 seconds
-        return new Customer(_customerIdCounter++, arrivalTime, items);
+        return new Customer(_customerIdCounter++, currentTimeSeconds, items);
     }
 
     // Method to simulate Poisson arrival distribution for customers
-    public void GenerateCustomersOverTime(double timeInterval)
+    public void GenerateCustomersOverTime(double timeInterval, int currentTimeSeconds)
     {
         double lambda = _parameters.CustomerArrivalRate * timeInterval; // Average number of arrivals in the interval
         int numberOfArrivals = PoissonRandom(lambda);
 
         for (int i = 0; i < numberOfArrivals; i++)
         {
-            Customer newCustomer = GenerateCustomer();
+            Customer newCustomer = GenerateCustomer(currentTimeSeconds);
             _queueManager.AddCustomerToShortestQueue(newCustomer);
-        }}
-    
-        private int PoissonRandom(double lambda)
-        {
-            double l = Math.Exp(-lambda);
-            int k = 0;
-            double p = 1.0;
-            do
-            {
-                k++;
-                p *= _random.NextDouble();
-            } while (p > l);
-            return k - 1;
         }
     }
+
+    private int PoissonRandom(double lambda)
+    {
+        double l = Math.Exp(-lambda);
+        int k = 0;
+        double p = 1.0;
+        do
+        {
+            k++;
+            p *= _random.NextDouble();
+        } while (p > l);
+        return k - 1;
+    }
+}

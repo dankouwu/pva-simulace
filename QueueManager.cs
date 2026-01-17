@@ -23,20 +23,30 @@ public class QueueManager
     }
 
     // Method to process customers (simulate service at registers)
-    public void ProcessCustomers(double timeInterval)
+    public void ProcessCustomers(double timeInterval, int currentTimeSeconds)
     {
         foreach (var register in Registers)
         {
-            if (register.Count > 0)
-            {
-                var currentCustomer = register.First();
-                double serviceTime = (currentCustomer.NumberOfItems * ProcessTimePerItem) + PaymentTime;
+            if (register.Count == 0) continue;
 
-                if (timeInterval >= serviceTime)
+            var currentCustomer = register.First();
+
+            if (currentCustomer.ServiceTime <= 0)
+            {
+                currentCustomer.ServiceTime = (int)Math.Ceiling((currentCustomer.NumberOfItems * ProcessTimePerItem) + PaymentTime);
+                if (currentCustomer.ServiceStartTime == 0)
                 {
-                    ProcessedCustomers.Add(currentCustomer);
-                    register.RemoveAt(0);
+                    currentCustomer.ServiceStartTime = currentTimeSeconds;
                 }
+            }
+
+            currentCustomer.ServiceTime -= (int)timeInterval;
+
+            if (currentCustomer.ServiceTime <= 0)
+            {
+                currentCustomer.DepartureTime = currentTimeSeconds;
+                ProcessedCustomers.Add(currentCustomer);
+                register.RemoveAt(0);
             }
         }
     }

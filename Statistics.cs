@@ -6,15 +6,28 @@ public class Statistics
     public int TotalCustomersProcessed { get; set; }
 
     // Method to calculate statistics
-    public void CalculateStatistics(List<Customer> processedCustomers, List<Queue<Customer>> registers)
+    public void CalculateStatistics(List<Customer> processedCustomers, int maxQueueLength)
     {
-        // Implement logic for calculating statistics (average wait time, max queue length, etc.)
+        ProcessedCustomers = processedCustomers;
+        MaxQueueLength = maxQueueLength;
+        TotalCustomersProcessed = processedCustomers.Count;
+
+        if (processedCustomers.Count == 0)
+        {
+            AverageWaitingTime = 0;
+            return;
+        }
+
+        double totalWait = processedCustomers.Sum(c => Math.Max(0, c.ServiceStartTime - c.ArrivalTimeSeconds));
+        AverageWaitingTime = totalWait / processedCustomers.Count;
     }
 
     // Method to display the statistics
     public void DisplayStatistics()
     {
-        // Implement the display logic on the console
+        Console.WriteLine($"\nPrůměrná doba čekání: {AverageWaitingTime:F1} s");
+        Console.WriteLine($"Maximální délka fronty: {MaxQueueLength}");
+        Console.WriteLine($"Celkově obslouženo: {TotalCustomersProcessed} zákazníků");
     }
 }
 

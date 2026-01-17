@@ -14,25 +14,74 @@ public class CheckoutSimulator
     // Main simulation loop
     public void RunSimulation()
     {
-        // Implement the logic for running the simulation, processing customers, and updating the state
+        int currentTimeSeconds = 0;
+        int maxQueueLength = 0;
+        var stats = new Statistics();
+
+        Console.WriteLine("Simulace běží...\n");
+
+        while (currentTimeSeconds < _parameters.SimulationDuration)
+        {
+            if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Q)
+            {
+                break;
+            }
+
+            _customerGenerator.GenerateCustomersOverTime(1, currentTimeSeconds);
+            _queueManager.ProcessCustomers(1, currentTimeSeconds);
+
+            int currentMax = _queueManager.Registers.Any() ? _queueManager.Registers.Max(r => r.Count) : 0;
+            if (currentMax > maxQueueLength) maxQueueLength = currentMax;
+
+            double liveAvgWait = CalculateLiveAverageWaitingTime(currentTimeSeconds);
+            int totalProcessed = _queueManager.ProcessedCustomers.Count;
+
+            Console.Clear();
+            Console.WriteLine("Simulace běží...\n");
+            Console.WriteLine($"Čas: {currentTimeSeconds + 1} s");
+            for (int i = 0; i < _queueManager.Registers.Count; i++)
+            {
+                int count = _queueManager.Registers[i].Count;
+                string bar = new string('#', count);
+                Console.WriteLine($"Pokladna {i + 1}: {bar} ({count} zákazníků)");
+            }
+            Console.WriteLine($"Průměrná doba čekání: {liveAvgWait:F1} s");
+            Console.WriteLine($"Maximální délka fronty: {maxQueueLength}");
+            Console.WriteLine($"Celkově obslouženo: {totalProcessed} zákazníků");
+
+            Thread.Sleep(1000);
+            currentTimeSeconds++;
+        }
+
+        stats.CalculateStatistics(_queueManager.ProcessedCustomers, maxQueueLength);
+        stats.DisplayStatistics();
     }
 
-    // Method to generate customers
-    private void GenerateCustomers()
+    private double CalculateLiveAverageWaitingTime(int currentTimeSeconds)
     {
-        // Call the GenerateCustomer method and add the generated customer to the queue
-    }
+        double totalWait = 0;
+        int count = 0;
 
-    // Method to handle customer checkout
-    private void ProcessCheckout()
-    {
-        // Process the customers at the registers
-    }
+        foreach (var c in _queueManager.ProcessedCustomers)
+        {
+            totalWait += Math.Max(0, c.ServiceStartTime - c.ArrivalTimeSeconds);
+            count++;
+        }
 
-    // Method to handle statistics calculation
-    private void CalculateStatistics()
-    {
-        // Calculate and display statistics like average waiting time, max queue length, etc.
+        foreach (var register in _queueManager.Registers)
+        {
+            foreach (var c in register)
+            {
+                if (c.ServiceStartTime > 0)
+                    totalWait += Math.Max(0, c.ServiceStartTime - c.ArrivalTimeSeconds);
+                else
+                    totalWait += Math.Max(0, currentTimeSeconds - c.ArrivalTimeSeconds);
+
+                count++;
+            }
+        }
+
+        return count == 0 ? 0 : totalWait / count;
     }
 }
 
