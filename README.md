@@ -12,7 +12,7 @@ Program umožňuje uživatelsky definovat různé parametry simulace, jako je po
 * **Simulace pokladen**: Simulace obsluhy zákazníků u pokladen v závislosti na počtu položek.
 * **Výpočet statistik**: Zobrazení průměrné doby čekání, maximální délky fronty a počtu obsloužených zákazníků.
 * **Vizualizace na konzoli**: Zobrazení průběhu simulace a výsledků na konzoli.
-  
+
 ## Parametry simulace
 
 * **Počet pokladen**: Počet pokladen, které budou obsluhovat zákazníky.
@@ -25,22 +25,28 @@ Program umožňuje uživatelsky definovat různé parametry simulace, jako je po
 Výpis parametrů před začátkem simulace:
 
 ```
-Simulation Parameters:
-Number of Registers: 6
-Simulation Duration: 60 seconds
-Customer Arrival Rate: 2.1 customers/second
-Item Range per Customer: 1 to 30 items
+Enter the number of registers (cashiers): 4
+Enter the duration of the simulation (in seconds): 60
+Enter the average customer arrival rate (customers per second): 1.2
+Enter the minimum number of items per customer: 2
+Enter the maximum number of items per customer: 7
 ```
 
+Simulace běží:
+
+```
 Simulace běží...
 
-```
-Čas: 60 s
-Pokladna 1: #### (7 zákazníků)
-Pokladna 2: ### (3 zákazníci)
-Průměrná doba čekání: 28.4 s
-Maximální délka fronty: 9
-Celkově obslouženo: 125 zákazníků
+Čas: 17 s
+Pokladna 1: ###################### (22 zákazníků)
+Pokladna 2: ###################### (22 zákazníků)
+Pokladna 3: ###################### (22 zákazníků)
+Pokladna 4: ###################### (22 zákazníků)
+Pokladna 5: ##################### (21 zákazníků)
+Pokladna 6: ##################### (21 zákazníků)
+Průměrná doba čekání: 8.8 s
+Maximální délka fronty: 22
+Celkově obslouženo: 0 zákazníků
 ```
 
 ## Chyby a řešení
